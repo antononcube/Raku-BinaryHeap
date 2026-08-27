@@ -1,21 +1,21 @@
 {
-    "perl" : "6.c",
-    "name" : "BinaryHeap",
-    "api"  : "1",
-    "auth" : "zef:dumarchie",
-    "version" : "0.0.7",
-    "description" : "Array-based binary heap",
-    "authors" : [ "Peter du Marchie van Voorthuysen" ],
-    "license" : "Artistic-2.0",
-    "provides" : {
-        "BinaryHeap" : "lib/BinaryHeap.rakumod"
-    },
-    "depends" : [
-        "Parameterizable:auth<zef:dumarchie>"
+    "name": "BinaryHeap",
+    "description": "Array-based binary heap",
+    "version": "0.1.0",
+    "authors": [
+        "Peter du Marchie van Voorthuysen",
+        "Anton Antonov"
     ],
-    "build-depends" : [ ],
-    "test-depends" : [ ],
-    "resources" : [ ],
-    "tags": [ "heap", "heapsort" ],
-    "source-url" : "git://github.com/dumarchie/raku-binaryheap.git"
+    "auth": "zef:antononcube",
+    "build-depends": [],
+    "provides": {
+        "BinaryHeap": "lib/BinaryHeap.rakumod"
+    },
+    "license": "Artistic-2.0",
+    "tags": [
+        "heap",
+        "heapsort"
+    ],
+    "api": "2",
+    "source-url": "git://github.com/antononcube/Raku-BinaryHeap.git"
 }
