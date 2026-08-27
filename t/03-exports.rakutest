@@ -2,7 +2,6 @@ use v6.c;
 use Test;
 plan 5;
 
-use lib 'lib';
 use BinaryHeap;
 
 subtest 'infix eqv', {
@@ -11,6 +10,14 @@ subtest 'infix eqv', {
 
     is BinaryHeap::MaxHeap.new eqv BinaryHeap::MaxHeap, True,
       'BinaryHeap::MaxHeap.new eqv BinaryHeap::MaxHeap';
+
+    my &comparator = -> $, $ { Same };
+    is BinaryHeap::MaxHeap.new(:&comparator)
+         eqv BinaryHeap::MaxHeap.new(:&comparator), True,
+      'heaps using the same custom comparator are equivalent';
+    is BinaryHeap::MaxHeap.new(:&comparator)
+         eqv BinaryHeap::MaxHeap.new, False,
+      'custom and default comparator configurations are not equivalent';
 }
 
 my \values = 25, 17, 36, 2, 19, 7, 3, 1, 100;
