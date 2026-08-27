@@ -12,3 +12,7 @@ benchmark/*.log
 
 # profiles
 profile-*.html
+
+.idea
+.iml
+.DS_Store
