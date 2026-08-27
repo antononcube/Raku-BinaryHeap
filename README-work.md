@@ -14,10 +14,6 @@ $heap.push(42, 11);
 say $heap.pop; # OUTPUT: «11␤»
 say $heap.top; # OUTPUT: «42␤»
 ```
-```
-# 11
-# 42
-```
 
 DESCRIPTION
 ===========
@@ -44,9 +40,6 @@ These classes accept a custom three-way comparison operator when constructed. Fo
 my &comparator = *.key cmp *.key;
 my BinaryHeap::MaxHeap $heap = BinaryHeap::MaxHeap.new(:&comparator);
 ```
-```
-# BinaryHeap::MaxHeap.new
-```
 
 An uninitialized `BinaryHeap` is a valid representation of an empty heap. This means that all documented methods can be called on a type object. Methods that may add values to the heap try to autovivify an uninitialized invocant, which means they can only be called on a *container* that stores or defaults to a *class* type. Custom comparators are instance state, so a heap that uses one must be constructed explicitly. For example, given an uninitialized default heap:
 
@@ -56,11 +49,6 @@ my BinaryHeap::MaxHeap $heap;
 say $heap.values;      # OUTPUT: «()␤»
 say $heap.replace(42); # OUTPUT: «Nil␤»
 say $heap.top;         # OUTPUT: «42␤»
-```
-```
-# ()
-# Nil
-# 42
 ```
 
 EXPORTS
@@ -79,10 +67,6 @@ Returns `True` if and only if the two heaps are of the same type, use the same c
 say BinaryHeap.new eqv BinaryHeap;                   # OUTPUT: «False␤»
 say BinaryHeap::MaxHeap.new eqv BinaryHeap::MaxHeap; # OUTPUT: «True␤»
 ```
-```
-# False
-# True
-```
 
 sub heapsort
 ------------
@@ -98,9 +82,6 @@ Sorts and returns the `@array`, using a custom three-way `&comparator` if provid
 my @array = 100.rand xx 10;
 heapsort @array, :reverse;
 heapsort -(* cmp *), @array;
-```
-```
-# [90.18557859618471 59.38993801350851 56.41777529253812 52.87557643201121 39.54857268232808 29.826185673951557 25.209141945262857 7.705584084675587 4.825691771793461 1.4694451085877192]
 ```
 
 Note that `heapsort` is not a [stable sort](https://en.wikipedia.org/wiki/Sorting_algorithm#Stability).
@@ -176,10 +157,6 @@ my BinaryHeap::MaxHeap $heap;
 $heap.push(42, 11);
 say $heap.pop; # OUTPUT: «42␤»
 say $heap.top; # OUTPUT: «11␤»
-```
-```
-# 42
-# 11
 ```
 
 method push-pop
